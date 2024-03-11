@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+Register User
+{% endblock %}
+
+{% block content %}
+<div class="main"> 
+    <h1>Register User</h1> 
+    <form action="{% url 'save-user' request_type='add' %}" id="registerUser" method="POST">
+        {% csrf_token %} 
+        <label for="first">Name:</label> 
+        <input type="text" id="name"
+            name="name"
+            placeholder="Enter your name" required> 
+
+        <label for="email">Email:</label> 
+        <input type="email" id="email"
+            name="email"
+            placeholder="Enter your email" required> 
+
+        <label for="password">Password:</label> 
+        <input type="password" id="password"
+            name="password"
+            placeholder="Enter your password" required> 
+
+        <div class="wrap"> 
+            <span id="loader"></span>
+            <button type="submit" id="submitajaxform"> 
+            Register
+            </button> 
+        </div> 
+    </form> 
+</div> 
+{% endblock %}
+
+
