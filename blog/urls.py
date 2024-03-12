@@ -4,5 +4,6 @@ from . import views
 
 urlpatterns = [
     path("register", views.register, name="register"),
+    path("login", views.login, name="login"),
     path('save/user/<str:request_type>', views.SaveUser, name="save-user"),
 ]

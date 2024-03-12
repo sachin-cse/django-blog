@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+Login User
+{% endblock %}
+
+{% block content %}
+<div class="main"> 
+    <h1>login User</h1> 
+    <form action="{% url 'save-user' request_type='login' %}" id="loginUser" method="POST">
+        {% csrf_token %} 
+
+        <label for="email">Email:</label> 
+        <input type="email" id="user-email"
+            name="email"
+            placeholder="Enter your email" required> 
+
+        <label for="password">Password:</label> 
+        <input type="password" id="user-password"
+            name="password"
+            placeholder="Enter your password" required> 
+
+        <div class="wrap"> 
+            <span id="login-loader"></span>
+            <button type="submit" id="login-user"> 
+            Login
+            </button>
+        </div> 
+    </form> 
+</div> 
+{% endblock %}
+
+
