@@ -6,6 +6,7 @@ from django.contrib.auth.hashers import make_password, check_password
 from .models import BlogUser
 from django.core.exceptions import ValidationError
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 def register(request):
     return render(request, "AuthTemplate/register.html")
@@ -48,6 +49,13 @@ def SaveUser(request, request_type):
             return JsonResponse({'status': 500, 'message': str(e)})
     else:
         raise Http404('Page not found')
+    
+    
+    
+# admin dashboard
+@login_required(login_url='/blog/login')
+def admin_dashboard(request):
+    return HttpResponse('Hare Krishna and Hare Rama')
 
             
             
