@@ -53,9 +53,9 @@ def SaveUser(request, request_type):
     
     
 # admin dashboard
-@login_required(login_url='/blog/login')
+# @login_required(login_url='/blog/login')
 def admin_dashboard(request):
-    return HttpResponse('Hare Krishna and Hare Rama')
+    return render(request,'dashboard.html')
 
             
             
